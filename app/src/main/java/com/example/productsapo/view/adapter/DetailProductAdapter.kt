@@ -68,7 +68,8 @@ class DetailProductAdapter(private var listVariant: MutableList<Variants>) :
         var tvListDetailProductSKU: TextView = v.findViewById(R.id.tvListDetailProductSKU)
         var tvListDetailProductPrice: TextView = v.findViewById(R.id.tvListDetailProductPrice)
         var tvListDetailProductOnHand: TextView = v.findViewById(R.id.tvListDetailProductTonkho)
-        var tvListDetailProductAvailable: TextView = v.findViewById(R.id.tvListDetailProductCotheban)
+        var tvListDetailProductAvailable: TextView =
+            v.findViewById(R.id.tvListDetailProductCotheban)
         var onClickItemVariant: LinearLayout = v.findViewById(R.id.llDetailProductVariant)
     }
 

@@ -18,9 +18,9 @@ class SelectVariantPresenter(val selectVariantContracts: SelectVariantContract) 
 
     private var currentPage: Int = 1
     private var limit = 10
-    fun getListVariant(currentPage : Int){
+    fun getListVariant(currentPage: Int) {
         val apiServiceVariant = ApiServiceVariant()
-        apiServiceVariant.Retrofit.getDataVariant(currentPage,limit,"")
+        apiServiceVariant.Retrofit.getDataVariant(currentPage, limit, "")
             .enqueue(object : Callback<ListVariantAPI> {
                 override fun onResponse(
                     call: Call<ListVariantAPI>,
@@ -34,15 +34,17 @@ class SelectVariantPresenter(val selectVariantContracts: SelectVariantContract) 
                     }
 
                 }
+
                 override fun onFailure(call: Call<ListVariantAPI>, t: Throwable) {
                 }
 
             })
 
     }
-    fun searchVariant(query: String){
+
+    fun searchVariant(query: String) {
         val apiServiceVariant = ApiServiceVariant()
-        apiServiceVariant.Retrofit.getDataVariant(currentPage,limit,query)
+        apiServiceVariant.Retrofit.getDataVariant(currentPage, limit, query)
             .enqueue(object : Callback<ListVariantAPI> {
                 override fun onResponse(
                     call: Call<ListVariantAPI>,
@@ -50,13 +52,14 @@ class SelectVariantPresenter(val selectVariantContracts: SelectVariantContract) 
                 ) {
                     val data = response.body()
                     if (data != null) {
-                        val list = listOrder(data.variants) as  MutableList<OrderLineItem>
+                        val list = listOrder(data.variants) as MutableList<OrderLineItem>
 
                         val metaData = metadata(data.metaDataVariant)
                         selectVariantContracts.callListVariant(list, metaData)
                     }
 
                 }
+
                 override fun onFailure(call: Call<ListVariantAPI>, t: Throwable) {
 
                 }
@@ -69,9 +72,10 @@ class SelectVariantPresenter(val selectVariantContracts: SelectVariantContract) 
         return list.map { variantDTOToOrderLineItem(it) }
 
     }
-    private fun variantDTOToOrderLineItem(dto:VariantsAPI) :OrderLineItem{
+
+    private fun variantDTOToOrderLineItem(dto: VariantsAPI): OrderLineItem {
         val orderLineItem = OrderLineItem()
-        orderLineItem.variant= Variants(dto)
+        orderLineItem.variant = Variants(dto)
         return orderLineItem
     }
 

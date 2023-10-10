@@ -23,7 +23,6 @@ import com.example.productsapo.model.OrderLineItem
 import com.example.productsapo.view.adapter.OderAdapter
 
 
-
 class OrderActivity : AppCompatActivity() {
 
 
@@ -81,9 +80,9 @@ class OrderActivity : AppCompatActivity() {
         val adapter = OderAdapter(order.orderLineItems, this)
         binding.rclvOrder.adapter = adapter
         adapter.onClickItemOrder = {
-
             showInfoOrder()
         }
+
     }
 
     private fun showInfoOrder() {
@@ -99,7 +98,7 @@ class OrderActivity : AppCompatActivity() {
         val alertDialogBuilder = AlertDialog.Builder(this)
 
         alertDialogBuilder.setTitle(resources.getString(R.string.thongbao))
-        alertDialogBuilder.setMessage(resources.getString(R.string.thongbao))
+        alertDialogBuilder.setMessage(resources.getString(R.string.taodonhangthanhcong))
 
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()

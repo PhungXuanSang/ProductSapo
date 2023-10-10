@@ -26,6 +26,7 @@ class SelectVariantActivity : AppCompatActivity(), SelectVariantContract {
         const val SWITCH_STATE = "KEY_SWITCH_STATE"
         const val MY_PREFS = "MY_PREFS"
     }
+
     private val sharedPreferences by lazy {
         getSharedPreferences(MY_PREFS, Context.MODE_PRIVATE)
     }
@@ -41,7 +42,7 @@ class SelectVariantActivity : AppCompatActivity(), SelectVariantContract {
     private var isLoading: Boolean = false
     private var currentPage = 1
     private var limit = 10
-    private  var mOrderLineItem: MutableList<OrderLineItem> = mutableListOf()
+    private var mOrderLineItem: MutableList<OrderLineItem> = mutableListOf()
     private var lineItems: MutableList<OrderLineItem>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +52,7 @@ class SelectVariantActivity : AppCompatActivity(), SelectVariantContract {
         selectVariantPresenter = SelectVariantPresenter(this)
         linearLayoutManager = LinearLayoutManager(this)
         selectVariantPresenter.getListVariant(currentPage)
- //       lineItems = intent.getSerializableExtra(KEY_LINE_ITEM) as? ArrayList<OrderLineItem> //
+        //       lineItems = intent.getSerializableExtra(KEY_LINE_ITEM) as? ArrayList<OrderLineItem> //
 
         binding.rclvSelectVariant.layoutManager = linearLayoutManager
         adapter = SelectVariantAdapter()
@@ -62,13 +63,16 @@ class SelectVariantActivity : AppCompatActivity(), SelectVariantContract {
     }
 
 
-    override fun callListVariant(listOrderLineItem:   MutableList<OrderLineItem>, metaData: MetaData) {
+    override fun callListVariant(
+        listOrderLineItem: MutableList<OrderLineItem>,
+        metaData: MetaData
+    ) {
 
-        if(!lineItems.isNullOrEmpty()){
-            lineItems?.let { updateQuantity(it,listOrderLineItem) }
+        if (!lineItems.isNullOrEmpty()) {
+            lineItems?.let { updateQuantity(it, listOrderLineItem) }
         }
-        if(mOrderLineItem.isNotEmpty()){
-            updateQuantity(mOrderLineItem,listOrderLineItem)
+        if (mOrderLineItem.isNotEmpty()) {
+            updateQuantity(mOrderLineItem, listOrderLineItem)
         }
         if (currentPage == 1) {
             adapter.addList(listOrderLineItem)
@@ -208,7 +212,7 @@ class SelectVariantActivity : AppCompatActivity(), SelectVariantContract {
                 val intent = Intent(this, OrderActivity::class.java)
                 intent.putExtra(KEY_LINE_ITEM, ArrayList(mOrderLineItem))
                 setResult(Activity.RESULT_OK, intent)
-               finish()
+                finish()
             }
 
         }

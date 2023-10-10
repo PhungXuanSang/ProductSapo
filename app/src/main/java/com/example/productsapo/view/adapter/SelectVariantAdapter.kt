@@ -13,23 +13,23 @@ import com.example.productsapo.api.format.NumberFormat.formatNumber
 import com.example.productsapo.model.OrderLineItem
 
 
-class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    companion object{
-        const val TYPE_VARIANT : Int = 1
-        const val TYPE_LOADING : Int = 2
+    companion object {
+        const val TYPE_VARIANT: Int = 1
+        const val TYPE_LOADING: Int = 2
     }
 
 
     var onClickItemVariant: ((orderLineItem: OrderLineItem) -> Unit)? = null
-    private var isLoadingAdd : Boolean = false
-    private var  listOrderLineItem:  MutableList<OrderLineItem> = mutableListOf()
+    private var isLoadingAdd: Boolean = false
+    private var listOrderLineItem: MutableList<OrderLineItem> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if(TYPE_VARIANT == viewType){
+        return if (TYPE_VARIANT == viewType) {
             val itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_list_variant, parent, false)
             VariantViewHolder(itemView)
-        }else{
+        } else {
             val itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.loading_actionbar, parent, false)
             LoadingViewHolder(itemView)
@@ -37,10 +37,11 @@ class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-      return listOrderLineItem.size
+        return listOrderLineItem.size
     }
+
     override fun getItemViewType(position: Int): Int {
-        if(position == listOrderLineItem.size-1 && isLoadingAdd){
+        if (position == listOrderLineItem.size - 1 && isLoadingAdd) {
             return TYPE_LOADING
         }
         return TYPE_VARIANT
@@ -48,7 +49,7 @@ class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(holder.itemViewType == TYPE_VARIANT){
+        if (holder.itemViewType == TYPE_VARIANT) {
             val variantViewHolder: VariantViewHolder = holder as VariantViewHolder
             var image: String? = null
             val orderItem = listOrderLineItem[position]
@@ -59,7 +60,7 @@ class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             Glide.with(variantViewHolder.ivListVariantImage.context).load(image)
                 .error(R.drawable.image).placeholder(R.drawable.image)
                 .into(variantViewHolder.ivListVariantImage)
-            variantViewHolder.tvListVariantName.text =orderItem.variant.name
+            variantViewHolder.tvListVariantName.text = orderItem.variant.name
             variantViewHolder.tvListVariantSKU.text = orderItem.variant.sku
 
             variantViewHolder.tvListVariantOnHand.text =
@@ -69,8 +70,8 @@ class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                 orderItem.variant.variantretailprice.formatNumber()
 
             variantViewHolder.itemListVariant.setOnClickListener {
-                variantViewHolder.tvVariantTotal.visibility=View.VISIBLE
-                orderItem.quantity= orderItem.quantity + 1
+                variantViewHolder.tvVariantTotal.visibility = View.VISIBLE
+                orderItem.quantity = orderItem.quantity + 1
                 variantViewHolder.tvVariantTotal.text = (orderItem.quantity).formatNumber()
                 onClickItemVariant?.invoke(orderItem)
 
@@ -79,21 +80,25 @@ class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         }
 
     }
-    fun addFooterLoading(){
+
+    fun addFooterLoading() {
         isLoadingAdd = true
         listOrderLineItem.add(OrderLineItem())
     }
-    fun removeFooterLoading(){
+
+    fun removeFooterLoading() {
         isLoadingAdd = false
-        val position: Int = listOrderLineItem.size-1
+        val position: Int = listOrderLineItem.size - 1
         listOrderLineItem.removeAt(position)
         notifyItemRemoved(position)
     }
-    fun addList(list: MutableList<OrderLineItem>){
-        val start=listOrderLineItem.size
+
+    fun addList(list: MutableList<OrderLineItem>) {
+        val start = listOrderLineItem.size
         listOrderLineItem.addAll(list)
         notifyItemRangeInserted(start, list.size)
     }
+
     inner class VariantViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         var ivListVariantImage: ImageView = v.findViewById(R.id.ivListVariantImage)
@@ -102,7 +107,7 @@ class SelectVariantAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         var tvListVariantPrice: TextView = v.findViewById(R.id.tvListVariantPrice)
         var tvListVariantOnHand: TextView = v.findViewById(R.id.tvListVariantTonkho)
         var itemListVariant: LinearLayout = v.findViewById(R.id.itemlistvariant)
-        var  tvVariantTotal : TextView = v.findViewById(R.id.tvVariantTotal)
+        var tvVariantTotal: TextView = v.findViewById(R.id.tvVariantTotal)
     }
 
     inner class LoadingViewHolder(v: View) : RecyclerView.ViewHolder(v) {}

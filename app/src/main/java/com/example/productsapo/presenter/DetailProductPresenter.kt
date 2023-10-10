@@ -13,7 +13,7 @@ import retrofit2.Response
 class DetailProductPresenter(var detailProductContract: DetailProductContract) {
 
 
-    fun detailProduct(id: Int){
+    fun detailProduct(id: Int) {
         val apiServiceProduct = ApiServiceProduct()
 
         apiServiceProduct.Retrofit.getDetailProduct(id)
@@ -30,13 +30,14 @@ class DetailProductPresenter(var detailProductContract: DetailProductContract) {
                         list?.let { detailProductContract.callDetailProduct(it) }
                     }
                 }
+
                 override fun onFailure(call: Call<ListProductAPI>, t: Throwable) {
                 }
             })
     }
 
-    fun  toModelProduct(products: ProductsAPI) : Products {
-        return  Products(products)
+    fun toModelProduct(products: ProductsAPI): Products {
+        return Products(products)
     }
 
 }

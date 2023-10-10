@@ -43,9 +43,9 @@ class ImageAdapter(var list: MutableList<Image>, var context: Context) :
         Glide.with(holder.ivImage.context).load(list[position].fullpath).into(holder.ivImage)
         holder.ivImage.setOnClickListener {
 
-                val dialog = ImageDialog(holder.itemView.context)
+            val dialog = ImageDialog(holder.itemView.context)
             list[position].fullpath?.let { it1 -> dialog.setImage(it1) } // Truyền đường dẫn ảnh cho dialog
-                dialog.show()
+            dialog.show()
 
             showDialogImage(list[position])
 

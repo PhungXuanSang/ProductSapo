@@ -27,7 +27,7 @@ class ProductAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var onClickItemProduct: ((idProduct: Int) -> Unit)? = null
     var onClickItemVariant: ((idProduct: Int, idVariant: Int) -> Unit)? = null
     var modeView = VIEW_TYPE_PRODUCT
-    private var listData : MutableList<Any> = mutableListOf()
+    private var listData: MutableList<Any> = mutableListOf()
 
     override fun getItemViewType(position: Int): Int {
         if ((position == listData.size - 1 && isLoadingAdd)) {
@@ -57,7 +57,6 @@ class ProductAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return ProductViewHolder(view)
 
     }
-
 
 
     override fun getItemCount(): Int {
@@ -103,7 +102,8 @@ class ProductAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             variantViewHolder.tvListVariantAvailable.text =
                 variantItem.getOnhand().formatNumber()
-            variantViewHolder.tvListVariantPrice.text =variantItem.variantretailprice.formatNumber()
+            variantViewHolder.tvListVariantPrice.text =
+                variantItem.variantretailprice.formatNumber()
 //                variantItem.getAvailable().formatNumber()
 
             variantViewHolder.itemListVariant.setOnClickListener {
@@ -117,12 +117,13 @@ class ProductAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     }
+
     fun getType(): Int {
         return modeView
     }
 
-    fun setData( data: List<Any>) {
-        val positionStart=listData.size
+    fun setData(data: List<Any>) {
+        val positionStart = listData.size
         listData.addAll(data)
         notifyItemRangeInserted(positionStart, data.size)
 
@@ -136,7 +137,7 @@ class ProductAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun removeLoading() {
         isLoadingAdd = false
-        val position =listData.size-1
+        val position = listData.size - 1
         listData.removeAt(position)
         notifyItemRemoved(position)
     }

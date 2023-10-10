@@ -16,19 +16,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ListProductPresenters( var listProductContract : ListProductContract)  {
-
+class ListProductPresenters(var listProductContract: ListProductContract) {
 
 
     private var currentPage: Int = 1
     private var limit = 10
 
-    fun getListProduct(currentPage : Int){
+    fun getListProduct(currentPage: Int) {
 
         val apiServiceProduct = ApiServiceProduct()
 
 
-        apiServiceProduct.Retrofit.getDataProduct(currentPage, limit,"")
+        apiServiceProduct.Retrofit.getDataProduct(currentPage, limit, "")
             .enqueue(object : Callback<ListProductAPI> {
                 override fun onResponse(
                     call: Call<ListProductAPI>,
@@ -41,64 +40,68 @@ class ListProductPresenters( var listProductContract : ListProductContract)  {
                     if (data != null) {
                         val list = listProduct(data.products) as MutableList<Products>
                         val metaData = metadata(data.metaDataProduct)
-                        listProductContract.callListProduct(list,metaData)
+                        listProductContract.callListProduct(list, metaData)
                     }
                 }
+
                 override fun onFailure(call: Call<ListProductAPI>, t: Throwable) {
                     Log.d("failed", "đ")
                 }
 
             }
-             )
-
+            )
 
 
     }
 
-    fun getListVariant(currentPage : Int){
+    fun getListVariant(currentPage: Int) {
         val apiServiceVariant = ApiServiceVariant()
-        apiServiceVariant.Retrofit.getDataVariant(currentPage,limit,"")
+        apiServiceVariant.Retrofit.getDataVariant(currentPage, limit, "")
             .enqueue(object : Callback<ListVariantAPI> {
-            override fun onResponse(
-                call: Call<ListVariantAPI>,
-                response: Response<ListVariantAPI>
-            ) {
-                val data = response.body()
-                Log.d("TAG", "onResponse: $data")
-                if (data != null) {
-                    val list = listVariant(data.variants) as MutableList<Variants>
-                    val metaData = metadata(data.metaDataVariant)
-                    listProductContract.callListVariant(list, metaData)
+                override fun onResponse(
+                    call: Call<ListVariantAPI>,
+                    response: Response<ListVariantAPI>
+                ) {
+                    val data = response.body()
+                    Log.d("TAG", "onResponse: $data")
+                    if (data != null) {
+                        val list = listVariant(data.variants) as MutableList<Variants>
+                        val metaData = metadata(data.metaDataVariant)
+                        listProductContract.callListVariant(list, metaData)
+                    }
+
                 }
 
-            }
-            override fun onFailure(call: Call<ListVariantAPI>, t: Throwable) {
-            }
+                override fun onFailure(call: Call<ListVariantAPI>, t: Throwable) {
+                }
 
-        })
+            })
 
     }
-    fun searchProduct(query: String){
-     val apiServiceProduct = ApiServiceProduct()
-     apiServiceProduct.Retrofit.getDataProduct(currentPage,limit,query)
-         .enqueue(object : Callback<ListProductAPI> {
-             override fun onResponse(
-                 call: Call<ListProductAPI>,
-                 response: Response<ListProductAPI>
-             ) {
-                 val data = response.body()
-                  val list = data?.let { listProduct(it.products) } as MutableList<Products>
-                     val metaData = metadata(data.metaDataProduct)
-                     listProductContract.callListProduct(list,metaData)
 
-             }
-             override fun onFailure(call: Call<ListProductAPI>, t: Throwable) {
-             }
-         })
- }
-    fun searchVariant(query: String){
+    fun searchProduct(query: String) {
+        val apiServiceProduct = ApiServiceProduct()
+        apiServiceProduct.Retrofit.getDataProduct(currentPage, limit, query)
+            .enqueue(object : Callback<ListProductAPI> {
+                override fun onResponse(
+                    call: Call<ListProductAPI>,
+                    response: Response<ListProductAPI>
+                ) {
+                    val data = response.body()
+                    val list = data?.let { listProduct(it.products) } as MutableList<Products>
+                    val metaData = metadata(data.metaDataProduct)
+                    listProductContract.callListProduct(list, metaData)
+
+                }
+
+                override fun onFailure(call: Call<ListProductAPI>, t: Throwable) {
+                }
+            })
+    }
+
+    fun searchVariant(query: String) {
         val apiServiceVariant = ApiServiceVariant()
-        apiServiceVariant.Retrofit.getDataVariant(currentPage,limit,query)
+        apiServiceVariant.Retrofit.getDataVariant(currentPage, limit, query)
             .enqueue(object : Callback<ListVariantAPI> {
                 override fun onResponse(
                     call: Call<ListVariantAPI>,
@@ -113,6 +116,7 @@ class ListProductPresenters( var listProductContract : ListProductContract)  {
                     }
 
                 }
+
                 override fun onFailure(call: Call<ListVariantAPI>, t: Throwable) {
 
                 }

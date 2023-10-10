@@ -27,13 +27,13 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
     private lateinit var listProductPresenter: ListProductPresenters
 
 
-    private var isLastPage : Boolean = false
-    private var isLoading : Boolean = false
+    private var isLastPage: Boolean = false
+    private var isLoading: Boolean = false
     private var currentPage = 1
     private var limit = 10
     private var job: Job? = null
     private var checkCancel = true
-    private var checkType :Boolean = true
+    private var checkType: Boolean = true
 
     private var productAdapter: ProductAdapter = ProductAdapter()
 
@@ -61,10 +61,12 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
     override fun callListProduct(mListProduct: MutableList<Products>, metadata: MetaData) {
 
         binding.tvListProductQuantity.text =
-            metadata.total.toString() + resources.getString(R.string.daucach) + resources.getString(R.string.sanpham)
+            metadata.total.toString() + resources.getString(R.string.daucach) + resources.getString(
+                R.string.sanpham
+            )
         binding.tvListProductTitle.text = resources.getString(R.string.sanpham)
         if (currentPage == 1) {
-            productAdapter.setData( mListProduct)
+            productAdapter.setData(mListProduct)
         } else {
             productAdapter.removeLoading()
             isLoading = false
@@ -78,10 +80,12 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
     override fun callListVariant(mlistVariant: MutableList<Variants>, metadata: MetaData) {
 
         binding.tvListProductQuantity.text =
-            metadata.total.toString() + resources.getString(R.string.daucach) + resources.getString(R.string.sanpham)
+            metadata.total.toString() + resources.getString(R.string.daucach) + resources.getString(
+                R.string.sanpham
+            )
         binding.tvListProductTitle.text = resources.getString(R.string.quanlykho)
         if (currentPage == 1) {
-            productAdapter.setData( mlistVariant)
+            productAdapter.setData(mlistVariant)
         } else {
             productAdapter.removeLoading()
             isLoading = false
@@ -119,6 +123,7 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
 
             })
     }
+
     private fun getOnClick() {
 
         binding.includeDetailHeader.ivlistProductVariant.setOnClickListener {
@@ -130,15 +135,15 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
 
                 binding.includeDetailHeader.ivlistProductVariant.setImageResource(R.drawable.baseline_dialpad_24)
                 binding.tvListProductTitle.setText(R.string.sanpham)
-                productAdapter.modeView=ProductAdapter.VIEW_TYPE_PRODUCT
+                productAdapter.modeView = ProductAdapter.VIEW_TYPE_PRODUCT
                 listProductPresenter.getListProduct(currentPage)
 
 
-            } else{
+            } else {
 
                 binding.includeDetailHeader.ivlistProductVariant.setImageResource(R.drawable.baseline_apartment_24)
                 binding.tvListProductTitle.setText(R.string.quanlykho)
-                productAdapter.modeView=ProductAdapter.VIEW_TYPE_VARIANT
+                productAdapter.modeView = ProductAdapter.VIEW_TYPE_VARIANT
                 listProductPresenter.getListVariant(currentPage)
 
             }
@@ -146,6 +151,7 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
 
 
     }
+
     private fun initOnclick() {
 
         getOnClick()
@@ -156,13 +162,14 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
         search()
         back()
     }
+
     private fun displayListProduct() {
         linearLayoutManager = LinearLayoutManager(this)
         val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        productAdapter= ProductAdapter()
+        productAdapter = ProductAdapter()
         binding.rclvListProductListproduct.apply {
-            layoutManager=linearLayoutManager
-            adapter=productAdapter
+            layoutManager = linearLayoutManager
+            adapter = productAdapter
             addItemDecoration(dividerItemDecoration)
         }
 
@@ -177,7 +184,8 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
                 }
                 )
     }
-    private fun back(){
+
+    private fun back() {
         binding.includeDetailHeader.ivListProductBack.setOnClickListener {
             finish()
         }
@@ -211,13 +219,13 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
                 productAdapter.clearListProduct()
                 currentPage = 1
 
-                val textSearch : String = p0.toString()
+                val textSearch: String = p0.toString()
                 if (productAdapter.getType() == ProductAdapter.VIEW_TYPE_PRODUCT) {
-                               listProductPresenter.searchProduct(textSearch)
+                    listProductPresenter.searchProduct(textSearch)
 
 
                 } else if (productAdapter.getType() == ProductAdapter.VIEW_TYPE_VARIANT) {
-                            listProductPresenter.searchVariant(textSearch)
+                    listProductPresenter.searchVariant(textSearch)
 
                 }
             }
@@ -227,9 +235,9 @@ class ListProductActivity : AppCompatActivity(), ListProductContract {
 
         })
         binding.edtProductListSearch.setOnClickListener { checkCancel = false }
-        if (!checkCancel){
+        if (!checkCancel) {
             binding.tvlistProductCancel.visibility = View.VISIBLE
-        }else{
+        } else {
             binding.tvlistProductCancel.visibility = View.GONE
         }
 
