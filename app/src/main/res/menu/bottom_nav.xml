@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Tổng quan" android:id="@+id/nav_tongquan"
+        android:icon="@drawable/baseline_home_24"
+        />
+    <item android:title="Đơn hàng" android:id="@+id/nav_donhang"
+        android:icon="@drawable/baseline_menu_book_24"
+        />
+    <item android:title="Vận chuyển" android:id="@+id/nav_vanchuyen"
+        android:icon="@drawable/baseline_departure_board_24"
+        />
+    <item android:title="Sản phẩm" android:id="@+id/nav_sanpham"
+        android:icon="@drawable/baseline_production_quantity_limits_24"
+        />
+    <item android:title="Thêm" android:id="@+id/nav_them"
+        android:icon="@drawable/baseline_dialpad_24"
+        />
+
+</menu>

@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".view.activity.OrderActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivOrderBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseline_keyboard_backspace_24" />
+
+        <TextView
+            android:id="@+id/tvOrderAddOrder"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_sp"
+            android:contentDescription="@string/t_m_v_th_m_s_n_ph_m_v_o_n_h_ng"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/t_m_v_th_m_s_n_ph_m_v_o_n_h_ng"
+            android:textColor="#8A8686"
+            android:textSize="15sp"
+            app:drawableLeftCompat="@drawable/baseline_search_24" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="5"
+            android:src="@drawable/ic_menu_vetical" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginVertical="10dp"
+        android:background="#D3CCCC" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#D5D0D0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rclvOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/llOrderAddOrder"
+                android:padding="15dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_cart"
+                    app:tint="@color/blue" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/n_h_ng_c_a_b_n_ch_a_c_s_n_ph_m_n_o"
+                    android:textColor="#D1CBCB"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ch_n_s_n_ph_m"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginVertical="18dp"
+                >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                >
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_gift_box"
+                    app:tint="@color/blue" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/p_d_ng_khuy_n_m_i"
+                    android:layout_marginHorizontal="15dp"
+                    android:textSize="22sp"
+                    android:textColor="@color/blue"
+                    />
+            </LinearLayout>
+                <View
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/view"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingLeft="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:text="@string/t_ng_s_l_ng"/>
+
+                    <TextView
+                        android:id="@+id/tvCreateOrderTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/_0"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginTop="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingLeft="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:text="@string/t_ng_ti_n_h_ng"/>
+
+                    <TextView
+                        android:id="@+id/tvCreateOrderTotalAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/_0"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginTop="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingLeft="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:text="@string/thu"/>
+
+                    <TextView
+                        android:id="@+id/tvCreateOrderTax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="_0"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginTop="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingLeft="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/blue"
+
+                        android:text="@string/chi_t_kh_u"/>
+
+                    <TextView
+                        android:id="@+id/tvCreateOrderDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/_0"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginTop="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingLeft="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/blue"
+                        android:text="@string/ph_giao_h_ng"/>
+
+                    <TextView
+                        android:id="@+id/tvCreateOrderTransactionFee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/_0"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:orientation="vertical"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kh_ch_h_ng"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingVertical="8dp"
+
+                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/img_user"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/baseline_person_24"/>
+
+                    <TextView
+                        android:layout_toEndOf="@+id/img_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/th_m_kh_ch_h_ng"
+                        android:textSize="20sp"
+                        android:layout_marginHorizontal="10dp"
+                        android:textColor="@color/blue" />
+
+                </RelativeLayout>
+                <View
+                   android:layout_marginVertical="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/view"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    >
+                    <ImageView
+                        android:id="@+id/img_price"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/baseline_person_24"/>
+
+                    <TextView
+                        android:layout_toEndOf="@+id/img_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gi_b_n_l"
+                        android:textSize="20sp"
+                        android:layout_marginHorizontal="10dp"
+                        android:textColor="@color/blue" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"
+                        android:layout_alignParentEnd="true"
+                        app:tint="@color/xam" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <RelativeLayout
+                android:padding="12dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginVertical="15dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_payment"
+                    app:tint="@color/view"
+                    android:src="@drawable/baseline_local_atm_24"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_toEndOf="@+id/img_payment"
+                    android:text="@string/ch_n_h_nh_th_c_thanh_to_n"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+                <ImageView
+                    app:tint="@color/view"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/baseline_arrow_forward_ios_24"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:padding="12dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivNote"
+                    app:tint="@color/blue"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/baseline_edit_note_24"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/th_m_ghi_ch"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:layout_toEndOf="@id/ivNote"
+                    android:layout_marginHorizontal="12dp"
+                    />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+    <RelativeLayout
+        android:layout_marginTop="12dp"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="@string/t_m_t_nh"/>
+        <TextView
+            android:id="@+id/tvCreateOrderTotalMoney"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="@string/_0"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_weight="8"
+            app:cardCornerRadius="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnCreateOrder"
+                android:text="@string/t_o_n_v_giao_h_ng"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:background="@color/blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+        <ImageButton
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="18dp"
+            android:scaleType="fitXY"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_three_dots"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name" translatable="false">ProductSapo</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="danhsachsanpham" translatable="false"> Danh sách Sản Phẩm</string>
+    <string name="nhaphang"> Nhập hàng</string>
+    <string name="kiemhang" translatable="false"> Kiểm hàng</string>
+    <string name="nhacungcap"> Nhà cung cấp</string>
+    <string name="intemmavach"> In tem mã vạch</string>
+    <string name="themsanpham"> Thêm sản phẩm</string>
+    <string name="sanpham"> Sản Phẩm</string>
+    <string name="xoathanhcong">Xóa thành công</string>
+    <string name="quanlykho">Quản lý kho</string>
+    <string name="tatcaloaisanpham"> Tất cả loại sản phẩm</string>
+    <string name="phienban"> Phiên bản</string>
+    <string name="seach">Nhập tên, mã SKU, barcode</string>
+    <string name="dabaogomthue">Đã bao gồm thuế</string>
+    <string name="chuabaogomthue">Chưa bao gồm thuế</string>
+    <string name="khongchophepban">Không cho phép bán</string>
+    <string name="chophepban">Cho phép bán</string>
+    <string name="chitietsanpham">Chi tiết sản phẩm</string>
+    <string name="sku">SKU</string>
+    <string name="Xoa_san_pham">Xóa sản phẩm </string>
+    <string name="ban_co_chac_chan_muon_xoa_san_pham_nay_ra_khoi_don_hang">Bạn có chắc chán muốn xóa sản phẩm %s ra khỏi đơn hàng</string>
+    <string name="phantram"> %</string>
+    <string name="daucach"> </string>
+    <string name="thongbao"> Thông báo!</string>
+    <string name="taodonhangthanhcong">Tạo đơn hàng công!</string>
+    <string name="gi_b_n_l">Giá bán lẻ</string>
+    <string name="_0">0</string>
+    <string name="gi_b_n_bu_n">Giá bán buôn</string>
+    <string name="gi_nh_p">Giá nhập</string>
+    <string name="kho_h_ng">Kho hàng</string>
+    <string name="chi_nh_nh_m_c_nh">Chi nhánh mặc định</string>
+    <string name="t_n_kho">Tồn kho:</string>
+    <string name="c_th_b_n">Có thể bán:</string>
+    <string name="th_m_th_ng_tin">Thêm thông tin</string>
+    <string name="m_t_ph_n_lo_i_s_n_ph_m">Mô tả, phân loại sản phẩm</string>
+    <string name="lo_i_s_n_ph_m">Loại sản phẩm</string>
+    <string name="gach">---</string>
+    <string name="nh_n_hi_u">Nhãn hiệu</string>
+    <string name="m_t">Mô tả</string>
+    <string name="cho_ph_p_b_n">Cho phép bán</string>
+    <string name="phi_n_b_n_s_n_ph_m">Phiên bản sản phẩm</string>
+    <string name="ang_giao_d_ch">Đang giao dịch</string>
+    <string name="thu_u_v_o">Thuế đầu vào</string>
+    <string name="kh_i_l_ng">Khối lượng</string>
+    <string name="haicham">:</string>
+    <string name="ass12">ASS12</string>
+    <string name="n_v_t_nh">Đơn vị tính</string>
+    <string name="thu_u_ra">Thuế đầu ra</string>
+    <string name="barcode">Barcode</string>
+    <string name="gi_s_n_ph_m">Giá sản phẩm</string>
+    <string name="ch_a_bao_g_m_thu">Chưa bao gồm thuế</string>
+    <string name="_10">10%</string>
+    <string name="t_m_v_th_m_s_n_ph_m_v_o_n_h_ng">Tìm và thêm sản phẩm vào đơn hàng</string>
+    <string name="n_h_ng_c_a_b_n_ch_a_c_s_n_ph_m_n_o">Đơn hàng của bạn chưa có sản phẩm nào!</string>
+    <string name="ch_n_s_n_ph_m">Chọn sản phẩm</string>
+    <string name="p_d_ng_khuy_n_m_i">Áp dụng khuyến mại</string>
+    <string name="t_ng_s_l_ng">Tổng số lượng</string>
+    <string name="t_ng_ti_n_h_ng">Tổng tiền hàng</string>
+    <string name="thu">Thuế</string>
+    <string name="chi_t_kh_u">Chiết khấu</string>
+    <string name="ph_giao_h_ng">Phí giao hàng</string>
+    <string name="kh_ch_h_ng">Khách hàng</string>
+    <string name="th_m_kh_ch_h_ng">Thêm khách hàng</string>
+    <string name="ch_n_h_nh_th_c_thanh_to_n">Chọn hình thức thanh toán</string>
+    <string name="th_m_ghi_ch">Thêm ghi chú</string>
+    <string name="t_m_t_nh">Tạm tính</string>
+    <string name="t_o_n_v_giao_h_ng">Tạo đơn và giao hàng</string>
+    <string name="max_quantity">999,999.999</string>
+    <string name="quantity_decimal">%1$s.%2$s</string>
+    <string name="quantity">%1$s%2$s</string>
+
+</resources>

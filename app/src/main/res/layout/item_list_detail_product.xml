@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:orientation="horizontal"
+    android:id="@+id/llDetailProductVariant">
+
+    <ImageView
+        android:id="@+id/ivListDetailProductVariant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_double_arrow_24"
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp"
+        />
+    <ImageView
+        android:id="@+id/ivListDetailProductImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:id="@+id/tvListDetailProductVariant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Thùng"
+            android:textSize="18dp"
+            android:layout_marginBottom="15dp"
+            />
+        <TextView
+            android:id="@+id/tvListDetailProductSKU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thùng"
+            android:textSize="18dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        >
+        <TextView
+            android:id="@+id/tvListDetailProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:text="100000"
+            />
+        <TextView
+            android:id="@+id/tvListDetailProductTonkho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Tồn kho:"
+            />
+        <TextView
+            android:id="@+id/tvListDetailProductCotheban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Có thể bán:"
+            />
+    </LinearLayout>
+
+</LinearLayout>
